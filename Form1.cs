@@ -12,17 +12,25 @@ namespace _324_phase_3
 {
     public partial class Form1 : Form
     {
+        public static Form1 Reference;
         public Form1()
         {
             InitializeComponent();
+            Reference = this;
+        }
+
+        private void OpenForm(Form form)
+        {
+            form.Location = this.Location;
+            form.StartPosition = FormStartPosition.Manual;
+            form.FormClosing += delegate { this.Show(); };
+            form.Show();
+            this.Hide();
         }
 
         private void pictureBoxAddRecipe_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            AddRecipe addRecipeForm = new AddRecipe();  //Create add recipe page
-            addRecipeForm.ShowDialog();  //show add recipe page
-            this.Close();
+            OpenForm(new AddRecipe());
         }
 
         //@todo - add labels to the icons
@@ -37,6 +45,21 @@ namespace _324_phase_3
             labelNewRecipe.Text = title;
             MessageBox.Show(title = " recipe successfully added");
             //MessageBox.Show(ingredients + "\n" + method);
+        }
+
+        private void pictureBoxThaiGreenCurry_Click(object sender, EventArgs e)
+        {
+            OpenForm(new DisplayRecipe("Thai Green Curry"));
+        }
+
+        private void pictureBoxCrazyTacos_Click(object sender, EventArgs e)
+        {
+            OpenForm(new DisplayRecipe("Crazy Tacos"));
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            OpenForm(new DisplayRecipe("Stuffed Sausages"));
         }
     }
 }
