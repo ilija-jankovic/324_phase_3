@@ -41,20 +41,12 @@ namespace _324_phase_3
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-
-            this.Hide();
-            Form1 myRecipeBook = new Form1();  //Create add recipe page
-            myRecipeBook.addNewRecipie(textBoxTitle.Text.ToString(), pictureBoxUpload.Image, textBoxIngredients.Text.ToString(), textBoxMethod.Text.ToString());  //passes in the recipe information
-            myRecipeBook.ShowDialog();  //show add recipe page
+            Form1.Reference.addNewRecipie(textBoxTitle.Text.ToString(), pictureBoxUpload.Image, textBoxIngredients.Text.ToString(), textBoxMethod.Text.ToString());  //passes in the recipe information
             this.Close();
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
-
-            this.Hide();
-            Form1 myRecipeBook = new Form1();  //Create add recipe page
-            myRecipeBook.ShowDialog();  //show add recipe page
             this.Close();
         }
     }

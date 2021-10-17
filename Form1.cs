@@ -12,16 +12,20 @@ namespace _324_phase_3
 {
     public partial class Form1 : Form
     {
+        public static Form1 Reference;
         public Form1()
         {
             InitializeComponent();
+            Reference = this;
         }
 
         private void OpenForm(Form form)
         {
+            form.Location = this.Location;
+            form.StartPosition = FormStartPosition.Manual;
+            form.FormClosing += delegate { this.Show(); };
+            form.Show();
             this.Hide();
-            form.ShowDialog();  //show add recipe page
-            this.Close();
         }
 
         private void pictureBoxAddRecipe_Click(object sender, EventArgs e)

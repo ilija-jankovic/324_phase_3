@@ -33,12 +33,13 @@ namespace _324_phase_3
             this.textBoxIngredients = new System.Windows.Forms.TextBox();
             this.labelMethod = new System.Windows.Forms.Label();
             this.labelIngredients = new System.Windows.Forms.Label();
+            this.buttonCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBoxMethod
             // 
             this.textBoxMethod.Font = new System.Drawing.Font("Trebuchet MS", 18F);
-            this.textBoxMethod.Location = new System.Drawing.Point(210, 422);
+            this.textBoxMethod.Location = new System.Drawing.Point(204, 308);
             this.textBoxMethod.Multiline = true;
             this.textBoxMethod.Name = "textBoxMethod";
             this.textBoxMethod.ReadOnly = true;
@@ -48,7 +49,7 @@ namespace _324_phase_3
             // textBoxIngredients
             // 
             this.textBoxIngredients.Font = new System.Drawing.Font("Trebuchet MS", 18F);
-            this.textBoxIngredients.Location = new System.Drawing.Point(210, 232);
+            this.textBoxIngredients.Location = new System.Drawing.Point(204, 118);
             this.textBoxIngredients.Multiline = true;
             this.textBoxIngredients.Name = "textBoxIngredients";
             this.textBoxIngredients.ReadOnly = true;
@@ -59,7 +60,7 @@ namespace _324_phase_3
             // 
             this.labelMethod.AutoSize = true;
             this.labelMethod.Font = new System.Drawing.Font("Trebuchet MS", 20F);
-            this.labelMethod.Location = new System.Drawing.Point(31, 422);
+            this.labelMethod.Location = new System.Drawing.Point(25, 308);
             this.labelMethod.Name = "labelMethod";
             this.labelMethod.Size = new System.Drawing.Size(105, 35);
             this.labelMethod.TabIndex = 9;
@@ -69,17 +70,29 @@ namespace _324_phase_3
             // 
             this.labelIngredients.AutoSize = true;
             this.labelIngredients.Font = new System.Drawing.Font("Trebuchet MS", 20F);
-            this.labelIngredients.Location = new System.Drawing.Point(31, 232);
+            this.labelIngredients.Location = new System.Drawing.Point(25, 118);
             this.labelIngredients.Name = "labelIngredients";
             this.labelIngredients.Size = new System.Drawing.Size(153, 35);
             this.labelIngredients.TabIndex = 8;
             this.labelIngredients.Text = "Ingredients";
             // 
+            // buttonCancel
+            // 
+            this.buttonCancel.Font = new System.Drawing.Font("Trebuchet MS", 20F);
+            this.buttonCancel.Location = new System.Drawing.Point(204, 609);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(170, 85);
+            this.buttonCancel.TabIndex = 12;
+            this.buttonCancel.Text = "Back";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
             // DisplayRecipe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(741, 724);
+            this.ClientSize = new System.Drawing.Size(741, 762);
+            this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.textBoxMethod);
             this.Controls.Add(this.textBoxIngredients);
             this.Controls.Add(this.labelMethod);
@@ -97,5 +110,6 @@ namespace _324_phase_3
         private System.Windows.Forms.TextBox textBoxIngredients;
         private System.Windows.Forms.Label labelMethod;
         private System.Windows.Forms.Label labelIngredients;
+        private System.Windows.Forms.Button buttonCancel;
     }
 }

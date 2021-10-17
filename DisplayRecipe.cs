@@ -79,5 +79,10 @@ namespace _324_phase_3
             textBoxIngredients.Text = GetIngredients(recipe);
             textBoxMethod.Text = GetMethod(recipe);
         }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
