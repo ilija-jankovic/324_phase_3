@@ -27,14 +27,14 @@ namespace _324_phase_3
                         "½ teaspoon salt\n" +
                         "8 kaffir lime leaves, thinly sliced\n" +
                         "2 teaspoons fish sauce, or more to taste\n" +
-                        "½ cup Thai basil\n";
+                        "½ cup Thai basil";
                 case "Crazy Tacos":
                     return "1 pound lean(at least 80 %) ground beef\n" +
                         "1 cup Old El Paso™ Thick 'n Chunky salsa\n" +
                         "10 Old El Paso™ taco shells\n" +
                         "1 / 2 head lettuce, shredded\n" +
                         "1 medium tomato, chopped (3 / 4 cup)\n" +
-                        "1 cup shredded Cheddar cheese(4 ounces)\n";
+                        "1 cup shredded Cheddar cheese(4 ounces)";
                 case "Stuffed Sausages":
                     return "6 sausage thick\n" +
                         "2 potato chopped\n" +
@@ -73,11 +73,27 @@ namespace _324_phase_3
             }
         }
 
+        private Image GetImage(string recipe)
+        {
+            switch (recipe)
+            {
+                case "Thai Green Curry":
+                    return Image.FromFile("..\\..\\Resources\\thaiGreenCurry.jpg");
+                case "Crazy Tacos":
+                    return Image.FromFile("..\\..\\Resources\\crazyTacos.jpg");
+                case "Stuffed Sausages":
+                    return Image.FromFile("..\\..\\Resources\\stuffedSausages.jpg");
+                default:
+                    return null;
+            }
+        }
+
         public DisplayRecipe(string recipe)
         {
             InitializeComponent();
             textBoxIngredients.Text = GetIngredients(recipe);
             textBoxMethod.Text = GetMethod(recipe);
+            pictureBoxRecipe.Image = GetImage(recipe);
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
