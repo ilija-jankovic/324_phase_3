@@ -41,8 +41,11 @@ namespace _324_phase_3
             this.labelVideo = new System.Windows.Forms.Label();
             this.labelAddRecipe = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.pictureBoxUpload = new System.Windows.Forms.PictureBox();
             this.buttonUpload = new System.Windows.Forms.Button();
+            this.labelTitleError = new System.Windows.Forms.Label();
+            this.labelIngredientsError = new System.Windows.Forms.Label();
+            this.labelMethodError = new System.Windows.Forms.Label();
+            this.pictureBoxUpload = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUpload)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,7 +53,7 @@ namespace _324_phase_3
             // 
             this.labelTitle.AutoSize = true;
             this.labelTitle.Font = new System.Drawing.Font("Trebuchet MS", 20F);
-            this.labelTitle.Location = new System.Drawing.Point(16, 104);
+            this.labelTitle.Location = new System.Drawing.Point(16, 115);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(72, 35);
             this.labelTitle.TabIndex = 0;
@@ -60,7 +63,7 @@ namespace _324_phase_3
             // 
             this.labelPicture.AutoSize = true;
             this.labelPicture.Font = new System.Drawing.Font("Trebuchet MS", 20F);
-            this.labelPicture.Location = new System.Drawing.Point(14, 157);
+            this.labelPicture.Location = new System.Drawing.Point(14, 176);
             this.labelPicture.Name = "labelPicture";
             this.labelPicture.Size = new System.Drawing.Size(102, 35);
             this.labelPicture.TabIndex = 1;
@@ -70,7 +73,7 @@ namespace _324_phase_3
             // 
             this.labelIngredients.AutoSize = true;
             this.labelIngredients.Font = new System.Drawing.Font("Trebuchet MS", 20F);
-            this.labelIngredients.Location = new System.Drawing.Point(16, 339);
+            this.labelIngredients.Location = new System.Drawing.Point(16, 380);
             this.labelIngredients.Name = "labelIngredients";
             this.labelIngredients.Size = new System.Drawing.Size(153, 35);
             this.labelIngredients.TabIndex = 3;
@@ -80,7 +83,7 @@ namespace _324_phase_3
             // 
             this.labelMethod.AutoSize = true;
             this.labelMethod.Font = new System.Drawing.Font("Trebuchet MS", 20F);
-            this.labelMethod.Location = new System.Drawing.Point(16, 529);
+            this.labelMethod.Location = new System.Drawing.Point(16, 577);
             this.labelMethod.Name = "labelMethod";
             this.labelMethod.Size = new System.Drawing.Size(105, 35);
             this.labelMethod.TabIndex = 4;
@@ -89,37 +92,40 @@ namespace _324_phase_3
             // textBoxTitle
             // 
             this.textBoxTitle.Font = new System.Drawing.Font("Trebuchet MS", 18F);
-            this.textBoxTitle.Location = new System.Drawing.Point(195, 104);
+            this.textBoxTitle.Location = new System.Drawing.Point(195, 115);
             this.textBoxTitle.MinimumSize = new System.Drawing.Size(72, 35);
             this.textBoxTitle.Multiline = true;
             this.textBoxTitle.Name = "textBoxTitle";
-            this.textBoxTitle.Size = new System.Drawing.Size(485, 35);
+            this.textBoxTitle.Size = new System.Drawing.Size(499, 35);
             this.textBoxTitle.TabIndex = 5;
+            this.textBoxTitle.TextChanged += new System.EventHandler(this.textBoxTitle_TextChanged);
             // 
             // textBoxIngredients
             // 
             this.textBoxIngredients.Font = new System.Drawing.Font("Trebuchet MS", 18F);
-            this.textBoxIngredients.Location = new System.Drawing.Point(195, 339);
+            this.textBoxIngredients.Location = new System.Drawing.Point(195, 380);
             this.textBoxIngredients.Multiline = true;
             this.textBoxIngredients.Name = "textBoxIngredients";
-            this.textBoxIngredients.Size = new System.Drawing.Size(485, 167);
+            this.textBoxIngredients.Size = new System.Drawing.Size(499, 147);
             this.textBoxIngredients.TabIndex = 6;
+            this.textBoxIngredients.TextChanged += new System.EventHandler(this.textBoxIngredients_TextChanged);
             // 
             // textBoxMethod
             // 
             this.textBoxMethod.Font = new System.Drawing.Font("Trebuchet MS", 18F);
-            this.textBoxMethod.Location = new System.Drawing.Point(195, 529);
+            this.textBoxMethod.Location = new System.Drawing.Point(195, 577);
             this.textBoxMethod.Multiline = true;
             this.textBoxMethod.Name = "textBoxMethod";
-            this.textBoxMethod.Size = new System.Drawing.Size(485, 269);
+            this.textBoxMethod.Size = new System.Drawing.Size(499, 247);
             this.textBoxMethod.TabIndex = 7;
+            this.textBoxMethod.TextChanged += new System.EventHandler(this.textBoxMethod_TextChanged);
             // 
             // buttonAdd
             // 
             this.buttonAdd.Font = new System.Drawing.Font("Trebuchet MS", 20F);
-            this.buttonAdd.Location = new System.Drawing.Point(173, 829);
+            this.buttonAdd.Location = new System.Drawing.Point(173, 852);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(170, 85);
+            this.buttonAdd.Size = new System.Drawing.Size(170, 62);
             this.buttonAdd.TabIndex = 8;
             this.buttonAdd.Text = "Add";
             this.buttonAdd.UseVisualStyleBackColor = true;
@@ -128,9 +134,9 @@ namespace _324_phase_3
             // buttonCancel
             // 
             this.buttonCancel.Font = new System.Drawing.Font("Trebuchet MS", 20F);
-            this.buttonCancel.Location = new System.Drawing.Point(379, 829);
+            this.buttonCancel.Location = new System.Drawing.Point(379, 852);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(170, 85);
+            this.buttonCancel.Size = new System.Drawing.Size(170, 62);
             this.buttonCancel.TabIndex = 9;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
@@ -140,7 +146,7 @@ namespace _324_phase_3
             // 
             this.labelVideo.AutoSize = true;
             this.labelVideo.Font = new System.Drawing.Font("Trebuchet MS", 20F);
-            this.labelVideo.Location = new System.Drawing.Point(14, 192);
+            this.labelVideo.Location = new System.Drawing.Point(14, 211);
             this.labelVideo.Name = "labelVideo";
             this.labelVideo.Size = new System.Drawing.Size(97, 35);
             this.labelVideo.TabIndex = 2;
@@ -150,7 +156,7 @@ namespace _324_phase_3
             // 
             this.labelAddRecipe.AutoSize = true;
             this.labelAddRecipe.Font = new System.Drawing.Font("Trebuchet MS", 36F);
-            this.labelAddRecipe.Location = new System.Drawing.Point(12, 9);
+            this.labelAddRecipe.Location = new System.Drawing.Point(23, 9);
             this.labelAddRecipe.MinimumSize = new System.Drawing.Size(668, 70);
             this.labelAddRecipe.Name = "labelAddRecipe";
             this.labelAddRecipe.Size = new System.Drawing.Size(668, 70);
@@ -162,25 +168,55 @@ namespace _324_phase_3
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // pictureBoxUpload
-            // 
-            this.pictureBoxUpload.Location = new System.Drawing.Point(195, 207);
-            this.pictureBoxUpload.Name = "pictureBoxUpload";
-            this.pictureBoxUpload.Size = new System.Drawing.Size(482, 108);
-            this.pictureBoxUpload.TabIndex = 11;
-            this.pictureBoxUpload.TabStop = false;
-            // 
             // buttonUpload
             // 
             this.buttonUpload.Font = new System.Drawing.Font("Trebuchet MS", 20F);
             this.buttonUpload.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.buttonUpload.Location = new System.Drawing.Point(195, 161);
+            this.buttonUpload.Location = new System.Drawing.Point(195, 180);
             this.buttonUpload.Name = "buttonUpload";
-            this.buttonUpload.Size = new System.Drawing.Size(482, 44);
+            this.buttonUpload.Size = new System.Drawing.Size(499, 44);
             this.buttonUpload.TabIndex = 12;
             this.buttonUpload.Text = "upload";
             this.buttonUpload.UseVisualStyleBackColor = true;
             this.buttonUpload.Click += new System.EventHandler(this.buttonUpload_Click);
+            // 
+            // labelTitleError
+            // 
+            this.labelTitleError.AutoSize = true;
+            this.labelTitleError.ForeColor = System.Drawing.Color.Red;
+            this.labelTitleError.Location = new System.Drawing.Point(206, 98);
+            this.labelTitleError.Name = "labelTitleError";
+            this.labelTitleError.Size = new System.Drawing.Size(0, 13);
+            this.labelTitleError.TabIndex = 13;
+            // 
+            // labelIngredientsError
+            // 
+            this.labelIngredientsError.AutoSize = true;
+            this.labelIngredientsError.ForeColor = System.Drawing.Color.Red;
+            this.labelIngredientsError.Location = new System.Drawing.Point(206, 364);
+            this.labelIngredientsError.Name = "labelIngredientsError";
+            this.labelIngredientsError.Size = new System.Drawing.Size(0, 13);
+            this.labelIngredientsError.TabIndex = 14;
+            // 
+            // labelMethodError
+            // 
+            this.labelMethodError.AutoSize = true;
+            this.labelMethodError.ForeColor = System.Drawing.Color.Red;
+            this.labelMethodError.Location = new System.Drawing.Point(206, 561);
+            this.labelMethodError.Name = "labelMethodError";
+            this.labelMethodError.Size = new System.Drawing.Size(0, 13);
+            this.labelMethodError.TabIndex = 15;
+            // 
+            // pictureBoxUpload
+            // 
+            this.pictureBoxUpload.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxUpload.Image = global::_324_phase_3.Properties.Resources.emptyPlate;
+            this.pictureBoxUpload.Location = new System.Drawing.Point(195, 226);
+            this.pictureBoxUpload.Name = "pictureBoxUpload";
+            this.pictureBoxUpload.Size = new System.Drawing.Size(499, 108);
+            this.pictureBoxUpload.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxUpload.TabIndex = 11;
+            this.pictureBoxUpload.TabStop = false;
             // 
             // AddRecipe
             // 
@@ -188,6 +224,9 @@ namespace _324_phase_3
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(716, 931);
+            this.Controls.Add(this.labelMethodError);
+            this.Controls.Add(this.labelIngredientsError);
+            this.Controls.Add(this.labelTitleError);
             this.Controls.Add(this.buttonUpload);
             this.Controls.Add(this.pictureBoxUpload);
             this.Controls.Add(this.labelAddRecipe);
@@ -225,5 +264,8 @@ namespace _324_phase_3
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.PictureBox pictureBoxUpload;
         private System.Windows.Forms.Button buttonUpload;
+        private System.Windows.Forms.Label labelTitleError;
+        private System.Windows.Forms.Label labelIngredientsError;
+        private System.Windows.Forms.Label labelMethodError;
     }
 }

@@ -25,13 +25,18 @@ namespace _324_phase_3
             this.Close();
         }
 
+        //@todo - add labels to the icons
+
+
         public void addNewRecipie(string title, Image image, string ingredients, string method)
         {
             pictureBoxNewRecipie.BorderStyle = BorderStyle.FixedSingle;
             pictureBoxNewRecipie.Image = image;
             pictureBoxNewRecipie.SizeMode = PictureBoxSizeMode.CenterImage;
-            labelCrazyTacos.BorderStyle = BorderStyle.FixedSingle;
-            labelCrazyTacos.Text = title;
+            labelNewRecipe.BorderStyle = BorderStyle.FixedSingle;
+            labelNewRecipe.Text = title;
+            MessageBox.Show(title = " recipe successfully added");
+            //MessageBox.Show(ingredients + "\n" + method);
         }
     }
 }

@@ -93,6 +93,16 @@ namespace _324_phase_3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap emptyPlate {
+            get {
+                object obj = ResourceManager.GetObject("emptyPlate", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap recipeBook {
             get {
                 object obj = ResourceManager.GetObject("recipeBook", resourceCulture);
