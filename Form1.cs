@@ -17,12 +17,16 @@ namespace _324_phase_3
             InitializeComponent();
         }
 
-        private void pictureBoxAddRecipe_Click(object sender, EventArgs e)
+        private void OpenForm(Form form)
         {
             this.Hide();
-            AddRecipe addRecipeForm = new AddRecipe();  //Create add recipe page
-            addRecipeForm.ShowDialog();  //show add recipe page
+            form.ShowDialog();  //show add recipe page
             this.Close();
+        }
+
+        private void pictureBoxAddRecipe_Click(object sender, EventArgs e)
+        {
+            OpenForm(new AddRecipe());
         }
 
         public void addNewRecipie(string title, Image image, string ingredients, string method)
@@ -32,6 +36,21 @@ namespace _324_phase_3
             pictureBoxNewRecipie.SizeMode = PictureBoxSizeMode.CenterImage;
             labelCrazyTacos.BorderStyle = BorderStyle.FixedSingle;
             labelCrazyTacos.Text = title;
+        }
+
+        private void pictureBoxThaiGreenCurry_Click(object sender, EventArgs e)
+        {
+            OpenForm(new DisplayRecipe("Thai Green Curry"));
+        }
+
+        private void pictureBoxCrazyTacos_Click(object sender, EventArgs e)
+        {
+            OpenForm(new DisplayRecipe("Crazy Tacos"));
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            OpenForm(new DisplayRecipe("Stuffed Sausages"));
         }
     }
 }

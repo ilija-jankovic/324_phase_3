@@ -52,6 +52,12 @@
     <Compile Include="AddRecipe.Designer.cs">
       <DependentUpon>AddRecipe.cs</DependentUpon>
     </Compile>
+    <Compile Include="DisplayRecipe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DisplayRecipe.Designer.cs">
+      <DependentUpon>DisplayRecipe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +68,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddRecipe.resx">
       <DependentUpon>AddRecipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DisplayRecipe.resx">
+      <DependentUpon>DisplayRecipe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

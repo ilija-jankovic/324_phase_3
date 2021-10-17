@@ -31,24 +31,24 @@ namespace _324_phase_3
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panelRecipes = new System.Windows.Forms.Panel();
-            this.labelSpacer = new System.Windows.Forms.Label();
-            this.pictureBoxNewRecipie = new System.Windows.Forms.PictureBox();
-            this.labelNewRecipe = new System.Windows.Forms.Label();
-            this.pictureBoxCrazyTacos = new System.Windows.Forms.PictureBox();
-            this.labelCrazyTacos = new System.Windows.Forms.Label();
-            this.pictureBoxThaiGreenCurry = new System.Windows.Forms.PictureBox();
-            this.labelThaiGreenCurry = new System.Windows.Forms.Label();
-            this.buttonRecipeBook = new System.Windows.Forms.Button();
-            this.buttonBrowse = new System.Windows.Forms.Button();
-            this.pictureBoxAddRecipe = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.labelSpacer = new System.Windows.Forms.Label();
+            this.labelNewRecipe = new System.Windows.Forms.Label();
+            this.labelCrazyTacos = new System.Windows.Forms.Label();
+            this.labelThaiGreenCurry = new System.Windows.Forms.Label();
+            this.pictureBoxAddRecipe = new System.Windows.Forms.PictureBox();
+            this.buttonBrowse = new System.Windows.Forms.Button();
+            this.buttonRecipeBook = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxNewRecipie = new System.Windows.Forms.PictureBox();
+            this.pictureBoxCrazyTacos = new System.Windows.Forms.PictureBox();
+            this.pictureBoxThaiGreenCurry = new System.Windows.Forms.PictureBox();
             this.panelRecipes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAddRecipe)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNewRecipie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCrazyTacos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxThaiGreenCurry)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAddRecipe)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelRecipes
@@ -69,6 +69,18 @@ namespace _324_phase_3
             this.panelRecipes.Size = new System.Drawing.Size(714, 843);
             this.panelRecipes.TabIndex = 0;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.Font = new System.Drawing.Font("Trebuchet MS", 36F);
+            this.label1.Location = new System.Drawing.Point(16, 881);
+            this.label1.MinimumSize = new System.Drawing.Size(668, 70);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(668, 70);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Stuffed Sausages";
+            // 
             // labelSpacer
             // 
             this.labelSpacer.AutoSize = true;
@@ -76,15 +88,6 @@ namespace _324_phase_3
             this.labelSpacer.Name = "labelSpacer";
             this.labelSpacer.Size = new System.Drawing.Size(0, 13);
             this.labelSpacer.TabIndex = 6;
-            // 
-            // pictureBoxNewRecipie
-            // 
-            this.pictureBoxNewRecipie.Location = new System.Drawing.Point(16, 968);
-            this.pictureBoxNewRecipie.Name = "pictureBoxNewRecipie";
-            this.pictureBoxNewRecipie.Size = new System.Drawing.Size(668, 230);
-            this.pictureBoxNewRecipie.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBoxNewRecipie.TabIndex = 5;
-            this.pictureBoxNewRecipie.TabStop = false;
             // 
             // labelNewRecipe
             // 
@@ -95,17 +98,6 @@ namespace _324_phase_3
             this.labelNewRecipe.Name = "labelNewRecipe";
             this.labelNewRecipe.Size = new System.Drawing.Size(668, 70);
             this.labelNewRecipe.TabIndex = 4;
-            // 
-            // pictureBoxCrazyTacos
-            // 
-            this.pictureBoxCrazyTacos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxCrazyTacos.Image = global::_324_phase_3.Properties.Resources.crazyTacos;
-            this.pictureBoxCrazyTacos.Location = new System.Drawing.Point(16, 335);
-            this.pictureBoxCrazyTacos.Name = "pictureBoxCrazyTacos";
-            this.pictureBoxCrazyTacos.Size = new System.Drawing.Size(668, 230);
-            this.pictureBoxCrazyTacos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBoxCrazyTacos.TabIndex = 3;
-            this.pictureBoxCrazyTacos.TabStop = false;
             // 
             // labelCrazyTacos
             // 
@@ -119,17 +111,6 @@ namespace _324_phase_3
             this.labelCrazyTacos.TabIndex = 2;
             this.labelCrazyTacos.Text = "Crazy Tacos";
             // 
-            // pictureBoxThaiGreenCurry
-            // 
-            this.pictureBoxThaiGreenCurry.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxThaiGreenCurry.Image = global::_324_phase_3.Properties.Resources.thaiGreenCurry;
-            this.pictureBoxThaiGreenCurry.Location = new System.Drawing.Point(16, 16);
-            this.pictureBoxThaiGreenCurry.Name = "pictureBoxThaiGreenCurry";
-            this.pictureBoxThaiGreenCurry.Size = new System.Drawing.Size(668, 230);
-            this.pictureBoxThaiGreenCurry.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBoxThaiGreenCurry.TabIndex = 1;
-            this.pictureBoxThaiGreenCurry.TabStop = false;
-            // 
             // labelThaiGreenCurry
             // 
             this.labelThaiGreenCurry.AutoSize = true;
@@ -141,28 +122,6 @@ namespace _324_phase_3
             this.labelThaiGreenCurry.Size = new System.Drawing.Size(668, 70);
             this.labelThaiGreenCurry.TabIndex = 0;
             this.labelThaiGreenCurry.Text = "Thai Green Curry";
-            // 
-            // buttonRecipeBook
-            // 
-            this.buttonRecipeBook.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.buttonRecipeBook.BackgroundImage = global::_324_phase_3.Properties.Resources.recipeBook;
-            this.buttonRecipeBook.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.buttonRecipeBook.Location = new System.Drawing.Point(0, 845);
-            this.buttonRecipeBook.Name = "buttonRecipeBook";
-            this.buttonRecipeBook.Size = new System.Drawing.Size(357, 85);
-            this.buttonRecipeBook.TabIndex = 1;
-            this.buttonRecipeBook.UseVisualStyleBackColor = false;
-            // 
-            // buttonBrowse
-            // 
-            this.buttonBrowse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.buttonBrowse.BackgroundImage = global::_324_phase_3.Properties.Resources.browse;
-            this.buttonBrowse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.buttonBrowse.Location = new System.Drawing.Point(357, 845);
-            this.buttonBrowse.Name = "buttonBrowse";
-            this.buttonBrowse.Size = new System.Drawing.Size(357, 85);
-            this.buttonBrowse.TabIndex = 2;
-            this.buttonBrowse.UseVisualStyleBackColor = false;
             // 
             // pictureBoxAddRecipe
             // 
@@ -176,6 +135,28 @@ namespace _324_phase_3
             this.pictureBoxAddRecipe.TabStop = false;
             this.pictureBoxAddRecipe.Click += new System.EventHandler(this.pictureBoxAddRecipe_Click);
             // 
+            // buttonBrowse
+            // 
+            this.buttonBrowse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.buttonBrowse.BackgroundImage = global::_324_phase_3.Properties.Resources.browse;
+            this.buttonBrowse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.buttonBrowse.Location = new System.Drawing.Point(357, 845);
+            this.buttonBrowse.Name = "buttonBrowse";
+            this.buttonBrowse.Size = new System.Drawing.Size(357, 85);
+            this.buttonBrowse.TabIndex = 2;
+            this.buttonBrowse.UseVisualStyleBackColor = false;
+            // 
+            // buttonRecipeBook
+            // 
+            this.buttonRecipeBook.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.buttonRecipeBook.BackgroundImage = global::_324_phase_3.Properties.Resources.recipeBook;
+            this.buttonRecipeBook.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.buttonRecipeBook.Location = new System.Drawing.Point(0, 845);
+            this.buttonRecipeBook.Name = "buttonRecipeBook";
+            this.buttonRecipeBook.Size = new System.Drawing.Size(357, 85);
+            this.buttonRecipeBook.TabIndex = 1;
+            this.buttonRecipeBook.UseVisualStyleBackColor = false;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -186,18 +167,40 @@ namespace _324_phase_3
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // label1
+            // pictureBoxNewRecipie
             // 
-            this.label1.AutoSize = true;
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Font = new System.Drawing.Font("Trebuchet MS", 36F);
-            this.label1.Location = new System.Drawing.Point(16, 881);
-            this.label1.MinimumSize = new System.Drawing.Size(668, 70);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(668, 70);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Stuffed Sausages";
+            this.pictureBoxNewRecipie.Location = new System.Drawing.Point(16, 968);
+            this.pictureBoxNewRecipie.Name = "pictureBoxNewRecipie";
+            this.pictureBoxNewRecipie.Size = new System.Drawing.Size(668, 230);
+            this.pictureBoxNewRecipie.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBoxNewRecipie.TabIndex = 5;
+            this.pictureBoxNewRecipie.TabStop = false;
+            // 
+            // pictureBoxCrazyTacos
+            // 
+            this.pictureBoxCrazyTacos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxCrazyTacos.Image = global::_324_phase_3.Properties.Resources.crazyTacos;
+            this.pictureBoxCrazyTacos.Location = new System.Drawing.Point(16, 335);
+            this.pictureBoxCrazyTacos.Name = "pictureBoxCrazyTacos";
+            this.pictureBoxCrazyTacos.Size = new System.Drawing.Size(668, 230);
+            this.pictureBoxCrazyTacos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBoxCrazyTacos.TabIndex = 3;
+            this.pictureBoxCrazyTacos.TabStop = false;
+            this.pictureBoxCrazyTacos.Click += new System.EventHandler(this.pictureBoxCrazyTacos_Click);
+            // 
+            // pictureBoxThaiGreenCurry
+            // 
+            this.pictureBoxThaiGreenCurry.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxThaiGreenCurry.Image = global::_324_phase_3.Properties.Resources.thaiGreenCurry;
+            this.pictureBoxThaiGreenCurry.Location = new System.Drawing.Point(16, 16);
+            this.pictureBoxThaiGreenCurry.Name = "pictureBoxThaiGreenCurry";
+            this.pictureBoxThaiGreenCurry.Size = new System.Drawing.Size(668, 230);
+            this.pictureBoxThaiGreenCurry.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBoxThaiGreenCurry.TabIndex = 1;
+            this.pictureBoxThaiGreenCurry.TabStop = false;
+            this.pictureBoxThaiGreenCurry.Click += new System.EventHandler(this.pictureBoxThaiGreenCurry_Click);
             // 
             // Form1
             // 
@@ -213,11 +216,11 @@ namespace _324_phase_3
             this.Text = "My Recipe Book";
             this.panelRecipes.ResumeLayout(false);
             this.panelRecipes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAddRecipe)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNewRecipie)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCrazyTacos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxThaiGreenCurry)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAddRecipe)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
