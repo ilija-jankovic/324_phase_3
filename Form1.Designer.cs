@@ -31,6 +31,12 @@ namespace _324_phase_3
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panelRecipes = new System.Windows.Forms.Panel();
+            this.panelBrowse = new System.Windows.Forms.Panel();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBoxRecipe = new System.Windows.Forms.PictureBox();
+            this.labelRecipeTitle = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.labelSpacer = new System.Windows.Forms.Label();
@@ -43,7 +49,10 @@ namespace _324_phase_3
             this.pictureBoxAddRecipe = new System.Windows.Forms.PictureBox();
             this.buttonBrowse = new System.Windows.Forms.Button();
             this.buttonRecipeBook = new System.Windows.Forms.Button();
+            this.buttonSearch = new System.Windows.Forms.Button();
             this.panelRecipes.SuspendLayout();
+            this.panelBrowse.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRecipe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNewRecipie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCrazyTacos)).BeginInit();
@@ -55,6 +64,7 @@ namespace _324_phase_3
             // 
             this.panelRecipes.AutoScroll = true;
             this.panelRecipes.BackColor = System.Drawing.Color.Transparent;
+            this.panelRecipes.Controls.Add(this.panelBrowse);
             this.panelRecipes.Controls.Add(this.pictureBox1);
             this.panelRecipes.Controls.Add(this.label1);
             this.panelRecipes.Controls.Add(this.labelSpacer);
@@ -68,6 +78,73 @@ namespace _324_phase_3
             this.panelRecipes.Name = "panelRecipes";
             this.panelRecipes.Size = new System.Drawing.Size(714, 843);
             this.panelRecipes.TabIndex = 0;
+            // 
+            // panelBrowse
+            // 
+            this.panelBrowse.AutoScroll = true;
+            this.panelBrowse.BackColor = System.Drawing.Color.Transparent;
+            this.panelBrowse.Controls.Add(this.buttonSearch);
+            this.panelBrowse.Controls.Add(this.textBoxSearch);
+            this.panelBrowse.Controls.Add(this.label3);
+            this.panelBrowse.Controls.Add(this.label4);
+            this.panelBrowse.Controls.Add(this.pictureBoxRecipe);
+            this.panelBrowse.Controls.Add(this.labelRecipeTitle);
+            this.panelBrowse.Location = new System.Drawing.Point(0, 0);
+            this.panelBrowse.Name = "panelBrowse";
+            this.panelBrowse.Size = new System.Drawing.Size(714, 1223);
+            this.panelBrowse.TabIndex = 9;
+            this.panelBrowse.Visible = false;
+            // 
+            // textBoxSearch
+            // 
+            this.textBoxSearch.Location = new System.Drawing.Point(74, 88);
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(344, 20);
+            this.textBoxSearch.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(338, 1424);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 13);
+            this.label3.TabIndex = 6;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Trebuchet MS", 36F);
+            this.label4.Location = new System.Drawing.Point(16, 1197);
+            this.label4.MinimumSize = new System.Drawing.Size(668, 70);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(668, 70);
+            this.label4.TabIndex = 4;
+            // 
+            // pictureBoxRecipe
+            // 
+            this.pictureBoxRecipe.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxRecipe.Image = global::_324_phase_3.Properties.Resources.thaiGreenCurry;
+            this.pictureBoxRecipe.Location = new System.Drawing.Point(16, 176);
+            this.pictureBoxRecipe.Name = "pictureBoxRecipe";
+            this.pictureBoxRecipe.Size = new System.Drawing.Size(668, 230);
+            this.pictureBoxRecipe.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBoxRecipe.TabIndex = 1;
+            this.pictureBoxRecipe.TabStop = false;
+            this.pictureBoxRecipe.Visible = false;
+            this.pictureBoxRecipe.Click += new System.EventHandler(this.pictureBoxRecipe_Click);
+            // 
+            // labelRecipeTitle
+            // 
+            this.labelRecipeTitle.AutoSize = true;
+            this.labelRecipeTitle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelRecipeTitle.Font = new System.Drawing.Font("Trebuchet MS", 36F);
+            this.labelRecipeTitle.Location = new System.Drawing.Point(16, 409);
+            this.labelRecipeTitle.MinimumSize = new System.Drawing.Size(668, 70);
+            this.labelRecipeTitle.Name = "labelRecipeTitle";
+            this.labelRecipeTitle.Size = new System.Drawing.Size(668, 70);
+            this.labelRecipeTitle.TabIndex = 0;
+            this.labelRecipeTitle.Text = "Thai Green Curry";
+            this.labelRecipeTitle.Visible = false;
             // 
             // pictureBox1
             // 
@@ -190,6 +267,7 @@ namespace _324_phase_3
             this.buttonBrowse.Size = new System.Drawing.Size(357, 85);
             this.buttonBrowse.TabIndex = 2;
             this.buttonBrowse.UseVisualStyleBackColor = false;
+            this.buttonBrowse.Click += new System.EventHandler(this.buttonBrowse_Click);
             // 
             // buttonRecipeBook
             // 
@@ -201,6 +279,18 @@ namespace _324_phase_3
             this.buttonRecipeBook.Size = new System.Drawing.Size(357, 85);
             this.buttonRecipeBook.TabIndex = 1;
             this.buttonRecipeBook.UseVisualStyleBackColor = false;
+            this.buttonRecipeBook.Click += new System.EventHandler(this.buttonRecipeBook_Click);
+            // 
+            // buttonSearch
+            // 
+            this.buttonSearch.Font = new System.Drawing.Font("Trebuchet MS", 20F);
+            this.buttonSearch.Location = new System.Drawing.Point(458, 60);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(170, 62);
+            this.buttonSearch.TabIndex = 9;
+            this.buttonSearch.Text = "Search";
+            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
             // Form1
             // 
@@ -216,6 +306,9 @@ namespace _324_phase_3
             this.Text = "My Recipe Book";
             this.panelRecipes.ResumeLayout(false);
             this.panelRecipes.PerformLayout();
+            this.panelBrowse.ResumeLayout(false);
+            this.panelBrowse.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRecipe)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNewRecipie)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCrazyTacos)).EndInit();
@@ -238,8 +331,15 @@ namespace _324_phase_3
         private System.Windows.Forms.Button buttonRecipeBook;
         private System.Windows.Forms.Button buttonBrowse;
         private System.Windows.Forms.PictureBox pictureBoxAddRecipe;
+        private System.Windows.Forms.Panel panelBrowse;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBoxRecipe;
+        private System.Windows.Forms.Label labelRecipeTitle;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxSearch;
+        private System.Windows.Forms.Button buttonSearch;
     }
 }
 

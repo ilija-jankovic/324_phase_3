@@ -65,9 +65,6 @@ namespace _324_phase_3
                     DialogResult cancelAddingRecpie = MessageBox.Show("Are you sure you want to cancel this recipe?", "", MessageBoxButtons.YesNo);
                     if (cancelAddingRecpie == DialogResult.Yes)
                     {
-                        this.Hide();
-                        Form1 myRecipeBook = new Form1();  //Create add recipe page
-                        myRecipeBook.ShowDialog();  //show add recipe page
                         this.Close();
                     }
                     else if (cancelAddingRecpie == DialogResult.No)
@@ -81,19 +78,14 @@ namespace _324_phase_3
                 DialogResult result = MessageBox.Show("Are you sure you dont want Picture(s)/Video(s).", "", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
-                    this.Hide();
-                    Form1 myRecipeBook = new Form1();  //Create add recipe page
-                    myRecipeBook.addNewRecipie(textBoxTitle.Text.ToString(), pictureBoxUpload.Image, textBoxIngredients.Text.ToString(), textBoxMethod.Text.ToString());  //passes in the recipe information
-                    myRecipeBook.ShowDialog();  //show add recipe page
+                    Form1.Reference.addNewRecipie(textBoxTitle.Text.ToString(), pictureBoxUpload.Image, textBoxIngredients.Text.ToString(), textBoxMethod.Text.ToString());  //passes in the recipe information
                     this.Close();
                 }
             }
             else
             {
                 this.Hide();
-                Form1 myRecipeBook = new Form1();  //Create add recipe page
-                myRecipeBook.addNewRecipie(textBoxTitle.Text.ToString(), pictureBoxUpload.Image, textBoxIngredients.Text.ToString(), textBoxMethod.Text.ToString());  //passes in the recipe information
-                myRecipeBook.ShowDialog();  //show add recipe page
+                Form1.Reference.addNewRecipie(textBoxTitle.Text.ToString(), pictureBoxUpload.Image, textBoxIngredients.Text.ToString(), textBoxMethod.Text.ToString());  //passes in the recipe information
                 this.Close();
             }
 
@@ -104,9 +96,6 @@ namespace _324_phase_3
             DialogResult result = MessageBox.Show("Are you sure you want to cancel this recipe?", "", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                this.Hide();
-                Form1 myRecipeBook = new Form1();  //Create add recipe page
-                myRecipeBook.ShowDialog();  //show add recipe page
                 this.Close();
             }
         }
