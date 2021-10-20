@@ -21,6 +21,10 @@ namespace _324_phase_3
         {
             InitializeComponent();
             Reference = this;
+            //Detach browse panel from recipe panel
+            panelBrowse.Parent = this;
+            //Binds ENTER to search button
+            this.AcceptButton = buttonSearch;
             labelRemoveThaiGreenCurry.Hide();
             labelShareThaiGreenCurry.Hide();
             labelRemoveCrazyTacos.Hide();
@@ -135,6 +139,56 @@ namespace _324_phase_3
                 labelShareStuffedSausages.Show();
                 sausageOptionsShowing = true;
             }
+        }
+
+        private void buttonRecipeBook_Click(object sender, EventArgs e)
+        {
+            panelBrowse.Visible = false;
+            panelRecipes.Visible = true;
+        }
+
+        private void buttonBrowse_Click(object sender, EventArgs e)
+        {
+            panelBrowse.Visible = true;
+            panelRecipes.Visible = false;
+        }
+
+        private void ShowSearchResult(string title, Image image)
+        {
+            labelRecipeTitle.Visible = true;
+            labelRecipeTitle.Text = title;
+
+            pictureBoxRecipe.Visible = true;
+            pictureBoxRecipe.Image = image;
+        }
+
+        private bool CompareAgainstSearch(string[] tokens, string[] matchingTokens)
+        {
+            foreach (string token in tokens)
+                foreach (string matchingToken in matchingTokens)
+                    if (token == matchingToken)
+                        return true;
+            return false;
+        }
+
+        //Compares each word separated by a space against a non-case-sensitive string set
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            string[] tokens = textBoxSearch.Text.ToLower().Split(' ');
+
+            if (CompareAgainstSearch(tokens, new string[] { "thai", "green", "curry" }))
+                ShowSearchResult("Thai Green Curry", Image.FromFile("..\\..\\Resources\\thaiGreenCurry.jpg"));
+            else if (CompareAgainstSearch(tokens, new string[] { "crazy", "tacos" }))
+                ShowSearchResult("Crazy Tacos", Image.FromFile("..\\..\\Resources\\crazyTacos.jpg"));
+            else if (CompareAgainstSearch(tokens, new string[] { "stuffed", "sausages" }))
+                ShowSearchResult("Stuffed Sausages", Image.FromFile("..\\..\\Resources\\stuffedSausages.jpg"));
+            else
+                ShowSearchResult("Could not find " + textBoxSearch.Text, null);
+        }
+
+        private void pictureBoxRecipe_Click(object sender, EventArgs e)
+        {
+            OpenForm(new DisplayRecipe(labelRecipeTitle.Text));
         }
     }
 }
