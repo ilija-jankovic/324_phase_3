@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,7 +17,10 @@ namespace _324_phase_3
 
         bool tacoOptionsShowing = false; 
         bool curryOptionsShowing = false; 
-        bool sausageOptionsShowing = false; 
+        bool sausageOptionsShowing = false;
+
+        ArrayList recipeList = new ArrayList();
+
         public Form1()
         {
             InitializeComponent();
@@ -32,6 +36,12 @@ namespace _324_phase_3
             labelDeleteStuffedSausages.Hide();
             labelEditStuffedSausages.Hide();
             labelShareStuffedSausages.Hide();
+
+            recipeList.Add(panelThaiGreenCurry);
+            recipeList.Add(panelCrazyTacos);
+            recipeList.Add(panelStuffedSausages);
+            recipeList.Add(panelNewRecipe);
+            refreshRecipeList();
 
         }
 
@@ -190,5 +200,41 @@ namespace _324_phase_3
         {
             OpenForm(new DisplayRecipe(labelRecipeTitle.Text));
         }
+
+        private void labelRemoveThaiGreenCurry_Click(object sender, EventArgs e)
+        {
+            removeRecipe(labelThaiGreenCurry.Text, panelThaiGreenCurry);
+        }
+
+        private void labelDeleteStuffedSausages_Click(object sender, EventArgs e)
+        {
+            removeRecipe(labelStuffedSausages.Text, panelStuffedSausages);
+        }
+
+        private void labelRemoveCrazyTacos_Click(object sender, EventArgs e)
+        {
+            removeRecipe(labelCrazyTacos.Text, panelCrazyTacos);
+        }
+
+        public void removeRecipe(string recipeName, Panel recipeCard)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to delete \"" + recipeName + "\" Recipe?", "", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                recipeList.RemoveAt(recipeList.IndexOf(recipeCard));
+                refreshRecipeList();
+            }
+        }
+
+        private void refreshRecipeList()
+        {
+            int previousPanelLocationY = 12 - 317;
+            foreach (Panel p in recipeList)
+            {
+                p.Location = new Point(12, previousPanelLocationY + 317);
+                previousPanelLocationY = p.Location.Y;
+            }
+        }
+
     }
 }
