@@ -20,7 +20,6 @@ namespace _324_phase_3
 
         private void showSharingButtons()
         {
-            MessageBox.Show("show sharing buttons");
             panelLinkCopied.Hide();
             panelFacebookSharing.Hide();
             panelMessengerSharing.Hide();

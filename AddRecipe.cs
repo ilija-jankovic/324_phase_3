@@ -14,6 +14,7 @@ namespace _324_phase_3
     public partial class AddRecipe : Form
     {
         bool initial = true;
+        bool edit = false;
         bool titleEntered = false;
         bool ingredientsEntered = false;
         bool methodEntered = false;
@@ -21,12 +22,32 @@ namespace _324_phase_3
         Graphics formGraphics;
         Rectangle titleBorder, instructionsBorder, methodBorder;
         Image emptyPlate;
+        Panel recipeCardToEdit;
+
+
+
+        public AddRecipe(Panel recipeCard, PictureBox pictureBox, Label recipeTitle, string recipeIngredients, string recipeMethod)
+        {
+            InitializeComponent();
+            formGraphics = this.CreateGraphics();
+            initial = false;
+            edit = true;
+            pictureBoxUpload.Image = pictureBox.Image;
+            textBoxTitle.Text = recipeTitle.Text;
+            textBoxIngredients.Text = recipeIngredients;
+            textBoxMethod.Text = recipeMethod;
+            labelAddRecipe.Text = "Edit Recipe";
+            this.Text = "Edit Recipe";
+            buttonAdd.Text = "Edit";
+            recipeCardToEdit = recipeCard;
+        }
 
         public AddRecipe()
         {
             InitializeComponent();
             formGraphics = this.CreateGraphics();
             emptyPlate = pictureBoxUpload.Image;
+            edit = false;
         }
 
         private void buttonUpload_Click(object sender, EventArgs e)
@@ -50,19 +71,28 @@ namespace _324_phase_3
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
+            string addMessage = "Recipe not added. \nPlease enter text in all fields.";
+            string cancelAddingMessage = "Are you sure you want to cancel adding this recipe?";
+            
+            if (edit)
+            {
+                addMessage = "Recipe updated added. \nPlease enter text in all fields.";
+                cancelAddingMessage = "Are you sure you want to cancel editing this recipe?";
+            }
+
             initial = false;
             if (!titleEntered ||
                 !ingredientsEntered ||
                 !methodEntered)
             {
-                DialogResult result = MessageBox.Show("Recipe not added. \nPlease enter text in all fields.", "", MessageBoxButtons.OKCancel);
+                DialogResult result = MessageBox.Show(addMessage, "", MessageBoxButtons.OKCancel);
                 if (result == DialogResult.OK)
                 {
                     drawErrors();
                 }
                 else if (result == DialogResult.Cancel)
                 {
-                    DialogResult cancelAddingRecpie = MessageBox.Show("Are you sure you want to cancel this recipe?", "", MessageBoxButtons.YesNo);
+                    DialogResult cancelAddingRecpie = MessageBox.Show(cancelAddingMessage, "", MessageBoxButtons.YesNo);
                     if (cancelAddingRecpie == DialogResult.Yes)
                     {
                         this.Close();
@@ -78,14 +108,28 @@ namespace _324_phase_3
                 DialogResult result = MessageBox.Show("Are you sure you dont want Picture(s)/Video(s).", "", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
-                    Form1.Reference.addNewRecipie(textBoxTitle.Text.ToString(), pictureBoxUpload.Image, textBoxIngredients.Text.ToString(), textBoxMethod.Text.ToString());  //passes in the recipe information
+                    if (edit)
+                    {
+                        Form1.Reference.editRecipie(recipeCardToEdit, textBoxTitle.Text.ToString(), pictureBoxUpload.Image, textBoxIngredients.Text.ToString(), textBoxMethod.Text.ToString());  //passes in the recipe information
+                    }
+                    else
+                    {
+                        Form1.Reference.addNewRecipie(textBoxTitle.Text.ToString(), pictureBoxUpload.Image, textBoxIngredients.Text.ToString(), textBoxMethod.Text.ToString());  //passes in the recipe information
+                    }
                     this.Close();
                 }
             }
             else
             {
                 this.Hide();
-                Form1.Reference.addNewRecipie(textBoxTitle.Text.ToString(), pictureBoxUpload.Image, textBoxIngredients.Text.ToString(), textBoxMethod.Text.ToString());  //passes in the recipe information
+                if (edit)
+                {
+                    Form1.Reference.editRecipie(recipeCardToEdit, textBoxTitle.Text.ToString(), pictureBoxUpload.Image, textBoxIngredients.Text.ToString(), textBoxMethod.Text.ToString());  //passes in the recipe information
+                }
+                else
+                {
+                    Form1.Reference.addNewRecipie(textBoxTitle.Text.ToString(), pictureBoxUpload.Image, textBoxIngredients.Text.ToString(), textBoxMethod.Text.ToString());  //passes in the recipe information
+                }
                 this.Close();
             }
 
@@ -93,7 +137,12 @@ namespace _324_phase_3
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are you sure you want to cancel this recipe?", "", MessageBoxButtons.YesNo);
+            string cancelMessage = "Are you sure you want to cancel this recipe?";
+            if (edit)
+            {
+                cancelMessage = "Are you sure you want to cancel editing this recipe?";
+            }
+            DialogResult result = MessageBox.Show(cancelMessage, "", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 this.Close();
@@ -125,7 +174,7 @@ namespace _324_phase_3
         //dont draw errors if they havent tried adding the recipe yet 
         private void drawErrors()
         {
-            if (!initial) 
+            if (!initial || edit) 
             {
                 //clear the canvas and text boxes
                 formGraphics.Clear(Color.FromArgb(250, 250, 250));
