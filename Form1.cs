@@ -27,6 +27,7 @@ namespace _324_phase_3
         public Form1()
         {
             InitializeComponent();
+            Console.WriteLine("where is it? " + panelThaiGreenCurry.Location);
             Reference = this;
             //Detach browse panel from recipe panel
             panelBrowse.Parent = this;
@@ -120,6 +121,10 @@ namespace _324_phase_3
             panelNewRecipe.Show();
 
             pictureBoxEllipsisNewRecipe.Show();
+            labelEditNewRecipe.Hide();
+            labelDeleteNewRecipe.Hide();
+            labelShareNewRecipe.Hide();
+            newRecipeOptionsShowing = false;
 
             recipeListIngredients.Add(ingredients);
             recipeListMethod.Add(method);
@@ -164,17 +169,20 @@ namespace _324_phase_3
 
         private void pictureBoxThaiGreenCurry_Click(object sender, EventArgs e)
         {
-            OpenForm(new DisplayRecipe("Thai Green Curry"));
+            //OpenForm(new DisplayRecipe("Thai Green Curry"));
+            OpenForm(new DisplayRecipe(panelThaiGreenCurry, labelThaiGreenCurry.Text, pictureBoxThaiGreenCurry.Image, recipeListIngredients[recipeList.IndexOf(panelThaiGreenCurry)].ToString(), recipeListMethod[recipeList.IndexOf(panelThaiGreenCurry)].ToString()));
         }
 
         private void pictureBoxCrazyTacos_Click(object sender, EventArgs e)
         {
-            OpenForm(new DisplayRecipe("Crazy Tacos"));
+            //OpenForm(new DisplayRecipe("Crazy Tacos"));
+            OpenForm(new DisplayRecipe(panelCrazyTacos, labelCrazyTacos.Text, pictureBoxCrazyTacos.Image, recipeListIngredients[recipeList.IndexOf(panelCrazyTacos)].ToString(), recipeListMethod[recipeList.IndexOf(panelCrazyTacos)].ToString()));
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            OpenForm(new DisplayRecipe("Stuffed Sausages"));
+            //OpenForm(new DisplayRecipe("Stuffed Sausages"));
+            OpenForm(new DisplayRecipe(panelStuffedSausages, labelStuffedSausages.Text, pictureBox1.Image, recipeListIngredients[recipeList.IndexOf(panelStuffedSausages)].ToString(), recipeListMethod[recipeList.IndexOf(panelStuffedSausages)].ToString()));
         }
 
         private void pictureBoxEllipsisThaiGreenCurry_Click(object sender, EventArgs e)
@@ -290,48 +298,50 @@ namespace _324_phase_3
         private void pictureBoxRecipe_Click(object sender, EventArgs e)
         {
             OpenForm(new DisplayRecipe(labelRecipeTitle.Text));
+            //OpenForm(new DisplayRecipe(panelStuffedSausages, labelStuffedSausages.Text, pictureBox1.Image, recipeListIngredients[recipeList.IndexOf(panelStuffedSausages)].ToString(), recipeListMethod[recipeList.IndexOf(panelStuffedSausages)].ToString()));
         }
 
         private void labelRemoveThaiGreenCurry_Click(object sender, EventArgs e)
         {
-            removeRecipe(labelThaiGreenCurry.Text, panelThaiGreenCurry);
+            removeRecipeResponce(labelThaiGreenCurry.Text, panelThaiGreenCurry);
         }
 
         private void labelDeleteStuffedSausages_Click(object sender, EventArgs e)
         {
-            removeRecipe(labelStuffedSausages.Text, panelStuffedSausages);
+            removeRecipeResponce(labelStuffedSausages.Text, panelStuffedSausages);
         }
 
         private void labelRemoveCrazyTacos_Click(object sender, EventArgs e)
         {
-            removeRecipe(labelCrazyTacos.Text, panelCrazyTacos);
+            removeRecipeResponce(labelCrazyTacos.Text, panelCrazyTacos);
         }
 
-        public void removeRecipe(string recipeName, Panel recipeCard)
+        private void removeRecipe(string recipeName, Panel recipeCard)
+        {
+            panelRecipes.VerticalScroll.Value = 0;
+            recipeListIngredients.RemoveAt(recipeList.IndexOf(recipeCard));
+            recipeListMethod.RemoveAt(recipeList.IndexOf(recipeCard));
+            if (!recipeCard.Equals(panelNewRecipe))
+            {
+                recipeCard.Hide();
+                recipeList.RemoveAt(recipeList.IndexOf(recipeCard));
+            }
+            refreshRecipeList();
+            if (recipeCard.Equals(panelNewRecipe))
+            {
+                panelNewRecipe.Hide();
+            }
+        }
+
+        public bool removeRecipeResponce(string recipeName, Panel recipeCard)
         {
             DialogResult result = MessageBox.Show("Are you sure you want to delete \"" + recipeName + "\" Recipe?", "", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                panelRecipes.VerticalScroll.Value = 0;
-                //string recipeCardsInList = "\nrecipes: \n";
-                //foreach (Panel p in recipeList)
-                //{
-                //    recipeCardsInList += " - " + p.Name + "\n";
-                //}
-                //Console.WriteLine("recipeCard: " + recipeCard.Name + " " + recipeList.IndexOf(recipeCard) + " " + recipeCardsInList);
-                recipeListIngredients.RemoveAt(recipeList.IndexOf(recipeCard));
-                recipeListMethod.RemoveAt(recipeList.IndexOf(recipeCard));
-                if (!recipeCard.Equals(panelNewRecipe))
-                {
-                    recipeCard.Hide();
-                    recipeList.RemoveAt(recipeList.IndexOf(recipeCard));
-                }
-                refreshRecipeList();
-                if (recipeCard.Equals(panelNewRecipe))
-                {
-                    panelNewRecipe.Hide();
-                }
+                removeRecipe(recipeName, recipeCard);
+                return true;
             }
+            return false;
         }
 
         private void refreshRecipeList()
@@ -377,12 +387,39 @@ namespace _324_phase_3
 
         private void labelDeleteNewRecipe_Click(object sender, EventArgs e)
         {
-            removeRecipe(labelNewRecipe.Text, panelNewRecipe);
+            removeRecipeResponce(labelNewRecipe.Text, panelNewRecipe);
         }
 
         private void labelShareNewRecipe_Click(object sender, EventArgs e)
         {
             OpenForm(new Share());
         }
+
+        private void pictureBoxNewRecipie_Click(object sender, EventArgs e)
+        {
+            OpenForm(new DisplayRecipe(panelNewRecipe, labelNewRecipe.Text, pictureBoxNewRecipie.Image, recipeListIngredients[recipeList.IndexOf(panelNewRecipe)].ToString(), recipeListMethod[recipeList.IndexOf(panelNewRecipe)].ToString()));
+        }
+
+        private void labelThaiGreenCurry_Click(object sender, EventArgs e)
+        {
+            OpenForm(new DisplayRecipe(panelThaiGreenCurry, labelThaiGreenCurry.Text, pictureBoxThaiGreenCurry.Image, recipeListIngredients[recipeList.IndexOf(panelThaiGreenCurry)].ToString(), recipeListMethod[recipeList.IndexOf(panelThaiGreenCurry)].ToString()));
+        }
+
+
+        private void labelStuffedSausages_Click(object sender, EventArgs e)
+        {
+            OpenForm(new DisplayRecipe(panelStuffedSausages, labelStuffedSausages.Text, pictureBox1.Image, recipeListIngredients[recipeList.IndexOf(panelStuffedSausages)].ToString(), recipeListMethod[recipeList.IndexOf(panelStuffedSausages)].ToString()));
+        }
+
+        private void labelCrazyTacos_Click(object sender, EventArgs e)
+        {
+            OpenForm(new DisplayRecipe(panelCrazyTacos, labelCrazyTacos.Text, pictureBoxCrazyTacos.Image, recipeListIngredients[recipeList.IndexOf(panelCrazyTacos)].ToString(), recipeListMethod[recipeList.IndexOf(panelCrazyTacos)].ToString()));
+        }
+
+        private void labelNewRecipe_Click(object sender, EventArgs e)
+        {
+            OpenForm(new DisplayRecipe(panelNewRecipe, labelNewRecipe.Text, pictureBoxNewRecipie.Image, recipeListIngredients[recipeList.IndexOf(panelNewRecipe)].ToString(), recipeListMethod[recipeList.IndexOf(panelNewRecipe)].ToString()));
+        }
+
     }
 }

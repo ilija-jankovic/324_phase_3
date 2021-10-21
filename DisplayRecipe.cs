@@ -96,9 +96,62 @@ namespace _324_phase_3
             pictureBoxRecipe.Image = GetImage(recipe);
         }
 
-        private void buttonCancel_Click(object sender, EventArgs e)
+        Panel recipeCard;
+
+        public DisplayRecipe(Panel recipeCard, string recipeTitle, Image recipeImage, string recipeIngredients, string recipeMethod)
+        {
+            InitializeComponent();
+            this.recipeCard = recipeCard;
+            labelRecipeTitle.Text = recipeTitle;
+            textBoxIngredients.Text = recipeIngredients;
+            textBoxMethod.Text = recipeMethod;
+            pictureBoxRecipe.Image = recipeImage;
+        }
+
+        private void labelBack_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void OpenForm(Form form)
+        {
+            form.Location = this.Location;
+            form.StartPosition = FormStartPosition.Manual;
+            form.FormClosing += delegate { this.Show(); };
+            form.Show();
+            this.Hide();
+        }
+        private void pictureBoxShare_Click(object sender, EventArgs e)
+        {
+            OpenForm(new Share());
+        }
+
+        private void labelBack_Click_1(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void pictureBoxDelete_Click(object sender, EventArgs e)
+        {
+            bool responce = Form1.Reference.removeRecipeResponce(labelRecipeTitle.Text, this.recipeCard);
+            if (responce)
+            {
+                Close();
+            }
+        }
+
+        private void labelShare_Click(object sender, EventArgs e)
+        {
+            OpenForm(new Share());
+        }
+
+        private void labelDelete_Click(object sender, EventArgs e)
+        {
+            bool responce = Form1.Reference.removeRecipeResponce(labelRecipeTitle.Text, this.recipeCard);
+            if (responce)
+            {
+                Close();
+            }
         }
     }
 }
