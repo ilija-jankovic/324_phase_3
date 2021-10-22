@@ -297,8 +297,23 @@ namespace _324_phase_3
 
         private void pictureBoxRecipe_Click(object sender, EventArgs e)
         {
-            OpenForm(new DisplayRecipe(labelRecipeTitle.Text));
-            //OpenForm(new DisplayRecipe(panelStuffedSausages, labelStuffedSausages.Text, pictureBox1.Image, recipeListIngredients[recipeList.IndexOf(panelStuffedSausages)].ToString(), recipeListMethod[recipeList.IndexOf(panelStuffedSausages)].ToString()));
+            //OpenForm(new DisplayRecipe(labelRecipeTitle.Text));
+            if (labelRecipeTitle.Text == labelNewRecipe.Text)
+            {
+                OpenForm(new DisplayRecipe(panelNewRecipe, labelNewRecipe.Text, pictureBoxNewRecipie.Image, recipeListIngredients[recipeList.IndexOf(panelNewRecipe)].ToString(), recipeListMethod[recipeList.IndexOf(panelNewRecipe)].ToString()));
+            }
+            else if (labelRecipeTitle.Text == labelThaiGreenCurry.Text)
+            {
+                OpenForm(new DisplayRecipe(panelThaiGreenCurry, labelThaiGreenCurry.Text, pictureBoxThaiGreenCurry.Image, recipeListIngredients[recipeList.IndexOf(panelThaiGreenCurry)].ToString(), recipeListMethod[recipeList.IndexOf(panelThaiGreenCurry)].ToString()));
+            }
+            else if (labelRecipeTitle.Text == labelStuffedSausages.Text)
+            {
+                OpenForm(new DisplayRecipe(panelStuffedSausages, labelStuffedSausages.Text, pictureBox1.Image, recipeListIngredients[recipeList.IndexOf(panelStuffedSausages)].ToString(), recipeListMethod[recipeList.IndexOf(panelStuffedSausages)].ToString()));
+            }
+            else if (labelRecipeTitle.Text == labelCrazyTacos.Text)
+            {
+                OpenForm(new DisplayRecipe(panelCrazyTacos, labelCrazyTacos.Text, pictureBoxCrazyTacos.Image, recipeListIngredients[recipeList.IndexOf(panelCrazyTacos)].ToString(), recipeListMethod[recipeList.IndexOf(panelCrazyTacos)].ToString()));
+            }
         }
 
         private void labelRemoveThaiGreenCurry_Click(object sender, EventArgs e)
@@ -420,6 +435,5 @@ namespace _324_phase_3
         {
             OpenForm(new DisplayRecipe(panelNewRecipe, labelNewRecipe.Text, pictureBoxNewRecipie.Image, recipeListIngredients[recipeList.IndexOf(panelNewRecipe)].ToString(), recipeListMethod[recipeList.IndexOf(panelNewRecipe)].ToString()));
         }
-
     }
 }

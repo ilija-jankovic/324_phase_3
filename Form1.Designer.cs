@@ -493,6 +493,7 @@ namespace _324_phase_3
             this.pictureBoxRecipe.TabIndex = 1;
             this.pictureBoxRecipe.TabStop = false;
             this.pictureBoxRecipe.Visible = false;
+            this.pictureBoxRecipe.Click += new System.EventHandler(this.pictureBoxRecipe_Click);
             // 
             // labelRecipeTitle
             // 
