@@ -106,6 +106,7 @@ namespace _324_phase_3
             this.textBoxIngredients.Location = new System.Drawing.Point(195, 380);
             this.textBoxIngredients.Multiline = true;
             this.textBoxIngredients.Name = "textBoxIngredients";
+            this.textBoxIngredients.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxIngredients.Size = new System.Drawing.Size(499, 147);
             this.textBoxIngredients.TabIndex = 6;
             this.textBoxIngredients.TextChanged += new System.EventHandler(this.textBoxIngredients_TextChanged);
@@ -116,6 +117,7 @@ namespace _324_phase_3
             this.textBoxMethod.Location = new System.Drawing.Point(195, 577);
             this.textBoxMethod.Multiline = true;
             this.textBoxMethod.Name = "textBoxMethod";
+            this.textBoxMethod.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxMethod.Size = new System.Drawing.Size(499, 247);
             this.textBoxMethod.TabIndex = 7;
             this.textBoxMethod.TextChanged += new System.EventHandler(this.textBoxMethod_TextChanged);

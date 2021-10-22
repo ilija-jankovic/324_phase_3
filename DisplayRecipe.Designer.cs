@@ -53,8 +53,10 @@ namespace _324_phase_3
             this.textBoxMethod.Multiline = true;
             this.textBoxMethod.Name = "textBoxMethod";
             this.textBoxMethod.ReadOnly = true;
+            this.textBoxMethod.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxMethod.Size = new System.Drawing.Size(665, 269);
             this.textBoxMethod.TabIndex = 11;
+            this.textBoxMethod.TabStop = false;
             // 
             // textBoxIngredients
             // 
@@ -64,8 +66,10 @@ namespace _324_phase_3
             this.textBoxIngredients.Multiline = true;
             this.textBoxIngredients.Name = "textBoxIngredients";
             this.textBoxIngredients.ReadOnly = true;
+            this.textBoxIngredients.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxIngredients.Size = new System.Drawing.Size(665, 167);
             this.textBoxIngredients.TabIndex = 10;
+            this.textBoxIngredients.TabStop = false;
             // 
             // labelMethod
             // 
@@ -100,6 +104,7 @@ namespace _324_phase_3
             // labelBack
             // 
             this.labelBack.AutoSize = true;
+            this.labelBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelBack.Font = new System.Drawing.Font("Trebuchet MS", 50F);
             this.labelBack.Location = new System.Drawing.Point(8, 4);
             this.labelBack.MinimumSize = new System.Drawing.Size(70, 70);
@@ -112,6 +117,7 @@ namespace _324_phase_3
             // 
             // pictureBoxShare
             // 
+            this.pictureBoxShare.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxShare.Image = global::_324_phase_3.Properties.Resources.share;
             this.pictureBoxShare.Location = new System.Drawing.Point(647, 12);
             this.pictureBoxShare.Name = "pictureBoxShare";
@@ -123,6 +129,7 @@ namespace _324_phase_3
             // 
             // pictureBoxDelete
             // 
+            this.pictureBoxDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxDelete.Image = global::_324_phase_3.Properties.Resources.delete;
             this.pictureBoxDelete.Location = new System.Drawing.Point(587, 12);
             this.pictureBoxDelete.Name = "pictureBoxDelete";
@@ -145,6 +152,7 @@ namespace _324_phase_3
             // 
             this.labelDelete.AutoSize = true;
             this.labelDelete.BackColor = System.Drawing.Color.Transparent;
+            this.labelDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelDelete.Font = new System.Drawing.Font("Trebuchet MS", 10F);
             this.labelDelete.Location = new System.Drawing.Point(593, 69);
             this.labelDelete.Name = "labelDelete";
@@ -157,6 +165,7 @@ namespace _324_phase_3
             // 
             this.labelShare.AutoSize = true;
             this.labelShare.BackColor = System.Drawing.Color.Transparent;
+            this.labelShare.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelShare.Font = new System.Drawing.Font("Trebuchet MS", 10F);
             this.labelShare.Location = new System.Drawing.Point(656, 70);
             this.labelShare.Name = "labelShare";
